@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config();
 
 const express = require('express');
@@ -7,6 +8,13 @@ const db_username = process.env.db_username;
 const db_password = process.env.db_password;
 const db = process.env.db;
 const app = express();
+
+const { indexRouter } = require('./routes/index.route');
+
+app.set('views', path.resolve(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: false }));
 
 function startApp() {
   mongoose
@@ -29,6 +37,4 @@ function startApp() {
 
 startApp();
 
-app.get('/', (req, res) => {
-  res.send('hello there Zahir');
-});
+app.use('/', indexRouter);
