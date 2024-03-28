@@ -7,7 +7,7 @@ const {
   formControllerPost,
 } = require('../controllers/index.controller');
 
-router.get('', indexController);
+router.get('/', indexController);
 
 router.get('/new', formControllerGet);
 

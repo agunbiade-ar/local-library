@@ -37,4 +37,4 @@ function startApp() {
 
 startApp();
 
-app.use('/', indexRouter);
+app.use('/catalog', indexRouter);

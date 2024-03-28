@@ -22,7 +22,7 @@ const formControllerGet = (req, res) => {
 const formControllerPost = (req, res) => {
   let { user, text } = req.body;
   messages.push({ user, text, added: new Date() });
-  res.redirect('/');
+  res.redirect('/catalog');
 };
 
 module.exports = {
